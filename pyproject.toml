@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "cctrding-tools"
+version = "0.1.0"
+description = ""
+authors = ["Kieren <kieren.yang@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+apache-airflow = {extras = ["postgres"], version = "^2.10.3"}
+pandas = "^2.2.3"
+apache-airflow-providers-postgres = "^5.14.0"
+psycopg2-binary = "^2.9.10"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+flake8 = "^7.1.1"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+atomic = true
+filter_files = true
+combine_as_imports = true
+
+[tool.black]
+line-length = 99
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | venv
+  | .venv
+)/
+'''
